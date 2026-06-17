@@ -1,0 +1,211 @@
+{
+  "config": {
+    "server_cost_per_ms": 50,
+    "fuel_consumption": {
+      "full_load_per_km": 0.05,
+      "empty_load_per_km": 0.02
+    },
+    "scenarios": {
+      "subsidi": {
+        "fuel_price_per_liter": 5000
+      },
+      "krisis": {
+        "fuel_price_per_liter": 20000
+      }
+    }
+  },
+  "graph_data": {
+    "Gudang Pusat Sukamaju": {
+      "package_weight": 0,
+      "distances": {
+        "Jatinangor Town Square - JATOS": 8.869,
+        "Apartemen Pinewood Jatinangor": 9.077,
+        "RS Unpad": 8.766,
+        "RS AMC Cileunyi": 7.291,
+        "Borma Toserba Cinunuk": 3.875,
+        "PT Dwipapuri Abadi": 13.408,
+        "Pasar Sehat Cileunyi": 7.667,
+        "Stasiun KCIC Tegalluar": 7.823,
+        "Depo Bangunan Bandung": 5.263,
+        "Griya Grand Cinunuk": 4.178,
+        "IKOPIN": 8.085
+      }
+    },
+    "Jatinangor Town Square - JATOS": {
+      "package_weight": 3.5,
+      "distances": {
+        "Gudang Pusat Sukamaju": 8.869,
+        "Apartemen Pinewood Jatinangor": 0.208,
+        "RS Unpad": 1.128,
+        "RS AMC Cileunyi": 2.144,
+        "Borma Toserba Cinunuk": 5.142,
+        "PT Dwipapuri Abadi": 8.261,
+        "Pasar Sehat Cileunyi": 2.52,
+        "Stasiun KCIC Tegalluar": 10.944,
+        "Depo Bangunan Bandung": 12.191,
+        "Griya Grand Cinunuk": 4.839,
+        "IKOPIN": 1.5
+      }
+    },
+    "Apartemen Pinewood Jatinangor": {
+      "package_weight": 2.0,
+      "distances": {
+        "Gudang Pusat Sukamaju": 9.077,
+        "Jatinangor Town Square - JATOS": 0.208,
+        "RS Unpad": 2.036,
+        "RS AMC Cileunyi": 3.052,
+        "Borma Toserba Cinunuk": 6.05,
+        "PT Dwipapuri Abadi": 6.372,
+        "Pasar Sehat Cileunyi": 3.428,
+        "Stasiun KCIC Tegalluar": 11.852,
+        "Depo Bangunan Bandung": 13.099,
+        "Griya Grand Cinunuk": 5.747,
+        "IKOPIN": 2.407
+      }
+    },
+    "RS Unpad": {
+      "package_weight": 4.0,
+      "distances": {
+        "Gudang Pusat Sukamaju": 8.766,
+        "Jatinangor Town Square - JATOS": 1.128,
+        "Apartemen Pinewood Jatinangor": 2.036,
+        "RS AMC Cileunyi": 3.564,
+        "Borma Toserba Cinunuk": 6.562,
+        "PT Dwipapuri Abadi": 7.814,
+        "Pasar Sehat Cileunyi": 3.94,
+        "Stasiun KCIC Tegalluar": 12.364,
+        "Depo Bangunan Bandung": 13.611,
+        "Griya Grand Cinunuk": 6.259,
+        "IKOPIN": 2.92
+      }
+    },
+    "RS AMC Cileunyi": {
+      "package_weight": 3.0,
+      "distances": {
+        "Gudang Pusat Sukamaju": 7.291,
+        "Jatinangor Town Square - JATOS": 2.144,
+        "Apartemen Pinewood Jatinangor": 3.052,
+        "RS Unpad": 3.564,
+        "Borma Toserba Cinunuk": 2.998,
+        "PT Dwipapuri Abadi": 6.117,
+        "Pasar Sehat Cileunyi": 0.376,
+        "Stasiun KCIC Tegalluar": 8.8,
+        "Depo Bangunan Bandung": 10.047,
+        "Griya Grand Cinunuk": 2.695,
+        "IKOPIN": 2.146
+      }
+    },
+    "Borma Toserba Cinunuk": {
+      "package_weight": 5.0,
+      "distances": {
+        "Gudang Pusat Sukamaju": 3.875,
+        "Jatinangor Town Square - JATOS": 5.142,
+        "Apartemen Pinewood Jatinangor": 6.05,
+        "RS Unpad": 6.562,
+        "RS AMC Cileunyi": 2.998,
+        "PT Dwipapuri Abadi": 9.533,
+        "Pasar Sehat Cileunyi": 3.792,
+        "Stasiun KCIC Tegalluar": 5.802,
+        "Depo Bangunan Bandung": 7.048,
+        "Griya Grand Cinunuk": 0.303,
+        "IKOPIN": 4.21
+      }
+    },
+    "PT Dwipapuri Abadi": {
+      "package_weight": 2.5,
+      "distances": {
+        "Gudang Pusat Sukamaju": 13.408,
+        "Jatinangor Town Square - JATOS": 8.261,
+        "Apartemen Pinewood Jatinangor": 6.372,
+        "RS Unpad": 7.814,
+        "RS AMC Cileunyi": 6.117,
+        "Borma Toserba Cinunuk": 9.533,
+        "Pasar Sehat Cileunyi": 6.673,
+        "Stasiun KCIC Tegalluar": 15.098,
+        "Depo Bangunan Bandung": 16.344,
+        "Griya Grand Cinunuk": 8.992,
+        "IKOPIN": 8.444
+      }
+    },
+    "Pasar Sehat Cileunyi": {
+      "package_weight": 1.5,
+      "distances": {
+        "Gudang Pusat Sukamaju": 7.667,
+        "Jatinangor Town Square - JATOS": 2.52,
+        "Apartemen Pinewood Jatinangor": 3.428,
+        "RS Unpad": 3.94,
+        "RS AMC Cileunyi": 0.376,
+        "Borma Toserba Cinunuk": 3.792,
+        "PT Dwipapuri Abadi": 6.673,
+        "Stasiun KCIC Tegalluar": 8.601,
+        "Depo Bangunan Bandung": 9.847,
+        "Griya Grand Cinunuk": 2.495,
+        "IKOPIN": 1.947
+      }
+    },
+    "Stasiun KCIC Tegalluar": {
+      "package_weight": 3.0,
+      "distances": {
+        "Gudang Pusat Sukamaju": 7.823,
+        "Jatinangor Town Square - JATOS": 10.944,
+        "Apartemen Pinewood Jatinangor": 11.852,
+        "RS Unpad": 12.364,
+        "RS AMC Cileunyi": 8.8,
+        "Borma Toserba Cinunuk": 5.802,
+        "PT Dwipapuri Abadi": 15.098,
+        "Pasar Sehat Cileunyi": 8.601,
+        "Depo Bangunan Bandung": 8.398,
+        "Griya Grand Cinunuk": 10.006,
+        "IKOPIN": 9.457
+      }
+    },
+    "Depo Bangunan Bandung": {
+      "package_weight": 4.5,
+      "distances": {
+        "Gudang Pusat Sukamaju": 5.263,
+        "Jatinangor Town Square - JATOS": 12.191,
+        "Apartemen Pinewood Jatinangor": 13.099,
+        "RS Unpad": 13.611,
+        "RS AMC Cileunyi": 10.047,
+        "Borma Toserba Cinunuk": 7.048,
+        "PT Dwipapuri Abadi": 16.344,
+        "Pasar Sehat Cileunyi": 9.847,
+        "Stasiun KCIC Tegalluar": 8.398,
+        "Griya Grand Cinunuk": 9.441,
+        "IKOPIN": 13.347
+      }
+    },
+    "Griya Grand Cinunuk": {
+      "package_weight": 2.0,
+      "distances": {
+        "Gudang Pusat Sukamaju": 4.178,
+        "Jatinangor Town Square - JATOS": 4.839,
+        "Apartemen Pinewood Jatinangor": 5.747,
+        "RS Unpad": 6.259,
+        "RS AMC Cileunyi": 2.695,
+        "Borma Toserba Cinunuk": 0.303,
+        "PT Dwipapuri Abadi": 8.992,
+        "Pasar Sehat Cileunyi": 2.495,
+        "Stasiun KCIC Tegalluar": 10.006,
+        "Depo Bangunan Bandung": 9.441,
+        "IKOPIN": 3.907
+      }
+    },
+    "IKOPIN": {
+      "package_weight": 3.5,
+      "distances": {
+        "Gudang Pusat Sukamaju": 8.085,
+        "Jatinangor Town Square - JATOS": 1.5,
+        "Apartemen Pinewood Jatinangor": 2.407,
+        "RS Unpad": 2.92,
+        "RS AMC Cileunyi": 2.146,
+        "Borma Toserba Cinunuk": 4.21,
+        "PT Dwipapuri Abadi": 8.444,
+        "Pasar Sehat Cileunyi": 1.947,
+        "Stasiun KCIC Tegalluar": 9.457,
+        "Depo Bangunan Bandung": 13.347,
+        "Griya Grand Cinunuk": 3.907
+      }
+    }
+  }
+}
