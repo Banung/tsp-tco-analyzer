@@ -56,7 +56,7 @@ Dalam simulasi ini, kami mengimplementasikan dan membandingkan dua arsitektur al
 
 ## 4. Summary: Kesimpulan Bisnis & Titik Break-Even
 
-*Skenario yang diuji menggunakan 1 Hub dan [ISI DENGAN JUMLAH PELANGGAN, misal: 11] pelanggan nyata.*
+*Skenario yang diuji menggunakan 1 Hub dan 11 pelanggan nyata.*
 
 Berdasarkan simulasi, **Skenario Subsidi (Rp 5.000/L)** memenangkan pemakaian **Algoritma Greedy**. Karena bensin murah, perusahaan tidak perlu membayar mahal untuk server demi menghemat sedikit liter bensin. Sebaliknya, pada **Skenario Krisis (Rp 20.000/L)**, penghematan bahan bakar yang ditawarkan oleh rute optimal **Algoritma Eksak** berhasil menutupi mahalnya tagihan komputasi server.
 
@@ -64,12 +64,12 @@ Berdasarkan simulasi, **Skenario Subsidi (Rp 5.000/L)** memenangkan pemakaian **
 Untuk menentukan kapan manajemen harus beralih (migrasi) dari sistem Greedy ke DFS, kita harus mencari titik harga bensin di mana **Total Cost of Ownership (TCO) Algoritma A sama dengan Algoritma B**.
 
 Berdasarkan log eksekusi, didapatkan selisih performa berikut:
-- **Selisih Waktu Komputasi Server:** `[ISI SELISIH MS EKSAK - GREEDY]` ms *(Setara dengan Rp [ISI SELISIH BIAYA SERVER])*
-- **Selisih Efisiensi BBM:** Algoritma Eksak lebih hemat `[ISI SELISIH LITER BENSIN GREEDY - EKSAK]` Liter.
+- **Selisih Waktu Komputasi Server:** `589.0106` ms *(Setara dengan Rp 29.450)*
+- **Selisih Efisiensi BBM:** Algoritma Eksak lebih hemat `240` Liter.
 
 **Formula BEP:**
 `(Selisih Liter Bensin × Harga BEP) = Selisih Biaya Server`
 `Harga BEP = Selisih Biaya Server / Selisih Liter Bensin`
 
 **Kesimpulan Akhir:**
-Algoritma Eksak (DFS) baru mulai memberikan keuntungan finansial (masuk akal secara ekonomi) jika harga BBM di pasar menyentuh angka **Rp [ISI DENGAN HASIL BAGI RUMUS DI ATAS] / Liter**. Jika harga bensin di bawah angka tersebut, perusahaan diwajibkan tetap memakai Algoritma Greedy.
+Algoritma Eksak (DFS) baru mulai memberikan keuntungan finansial (masuk akal secara ekonomi) jika harga BBM di pasar menyentuh angka **Rp 122 / Liter**. Jika harga bensin di bawah angka tersebut, perusahaan diwajibkan tetap memakai Algoritma Greedy.
