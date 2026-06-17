@@ -144,6 +144,47 @@ yang diulang jutaan kali selama DFS berjalan.
 
 ---
 
+## Analisis Kompleksitas Algoritma A — Greedy Nearest Neighbor
+
+> Bagian ini mendokumentasikan **Algoritma A** yang diimplementasikan di `src/greedy.py`.
+> Algoritma ini memilih pelanggan terdekat yang belum dikunjungi pada setiap langkah,
+> sehingga fokusnya adalah kecepatan eksekusi dan biaya komputasi rendah.
+
+### Analisis Kompleksitas Waktu
+
+Greedy melakukan iterasi satu per satu untuk setiap node yang belum dikunjungi.
+Pada setiap langkah, greedy mengecek semua kandidat yang tersisa untuk menemukan jarak
+terdekat.
+
+```
+Iterasi 1 → n-1 pelanggan
+Iterasi 2 → n-2 pelanggan
+...
+Iterasi n-1 → 1 pelanggan
+Total kerja = (n-1) + (n-2) + ... + 1 = O(n²)
+```
+
+Dapat disimpulkan bahwa terdapat O(n) iterasi dan tiap iterasi juga membutuhkan pencarian linear O(n) terhadap semua kandidat yang belum dikunjungi sehingga total kompleksitas asimtotiknya sama untuk best case, average case, maupun worst case yaitu O(n) × O(n) = O(n²).
+
+### Analisis Kompleksitas Ruang
+
+Greedy menggunakan struktur data linear terhadap jumlah node:
+
+- `visited[]` → O(n)
+- `path` → O(n)
+- variabel tambahan (`current_node`, `current_load`, `segment_fuel`) → O(n) secara total
+
+Sehingga kompleksitas ruangnya adalah **O(n)**.
+
+### Catatan untuk Dynamic Fuel Cost
+
+Meskipun ada perhitungan konsumsi bensin dinamis di setiap segmen, hal tersebut tidak
+mengubah kompleksitas asimtotik.
+Fungsi biaya hanya dihitung sekali per segmen dan menghasilkan kompleksitas O(1) pada
+setiap iterasi.
+
+---
+
 ## Perbandingan dengan Algoritma A (Heuristik Greedy)
 
 | Aspek                    | Algoritma B (DFS + Pruning) | Algoritma A (Greedy)  |
