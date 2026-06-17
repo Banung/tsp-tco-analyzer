@@ -2,6 +2,7 @@
   "config": {
     "server_cost_per_ms": 50,
     "fuel_consumption": {
+      "max_vehicle_capacity_kg": 50.0,
       "full_load_per_km": 0.05,
       "empty_load_per_km": 0.02
     },
