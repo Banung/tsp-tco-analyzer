@@ -65,11 +65,11 @@ Untuk menentukan kapan manajemen harus beralih (migrasi) dari sistem Greedy ke D
 
 Berdasarkan log eksekusi, didapatkan selisih performa berikut:
 - **Selisih Waktu Komputasi Server:** `589.0106` ms *(Setara dengan Rp 29.450)*
-- **Selisih Efisiensi BBM:** Algoritma Eksak lebih hemat `2.40` Liter.
+- **Selisih Efisiensi BBM:** Algoritma Eksak lebih hemat `0.24` Liter.
 
 **Formula BEP:**
 `(Selisih Liter Bensin × Harga BEP) = Selisih Biaya Server`
 `Harga BEP = Selisih Biaya Server / Selisih Liter Bensin`
 
 **Kesimpulan Akhir:**
-Algoritma Eksak (DFS) baru mulai memberikan keuntungan finansial (masuk akal secara ekonomi) jika harga BBM di pasar menyentuh angka **Rp 12.270 / Liter**. Jika harga bensin di bawah angka tersebut, perusahaan diwajibkan tetap memakai Algoritma Greedy.
+Algoritma Eksak (DFS) baru mulai memberikan keuntungan finansial (masuk akal secara ekonomi) jika harga BBM di pasar menyentuh angka **Rp 122.710 / Liter**. Jika harga bensin di bawah angka tersebut, perusahaan diwajibkan tetap memakai Algoritma Greedy.
