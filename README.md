@@ -47,10 +47,59 @@ Dalam simulasi ini, kami mengimplementasikan dan membandingkan dua arsitektur al
   Hanya menggunakan array pendukung linear seperti `visited[]`, `path`, dan variabel *tracking* untuk *dynamic fuel cost*.
 
 ### B. Algoritma B (DFS Backtracking dengan Pruning)
-- **Kompleksitas Waktu: O(n!) Worst Case | O(b^n) Average Case**
-  Tanpa optimasi, DFS menelusuri seluruh permutasi rute `n!`. Namun, kami menerapkan dua lapis pemangkasan cabang (*Pruning* Langsung & *Lower Bound*). Kami juga menggunakan **Greedy Warm-Start** agar batas awal langsung optimal. Efeknya, rata-rata *branching factor* (b) mengecil drastis, mengurangi waktu eksekusi secara signifikan.
+
+**Implementasi:** `src/algo_exact.py` — class `ExactRouteFinder`
+
+#### Cara Kerja
+Algoritma menelusuri seluruh kemungkinan urutan kunjungan secara rekursif mulai dari
+Hub (node 0), dengan tiga mekanisme dasar backtracking: **MAJU** (tandai node sebagai
+dikunjungi, tambahkan ke jalur), **REKURSI** (lanjutkan dari node tersebut), **MUNDUR**
+(batalkan kunjungan, coba cabang lain). Tujuannya murni mencari **jarak total (km)
+terpendek**.
+
+Tiga optimasi diterapkan agar performa praktis untuk `n ≤ 12`:
+
+1. **Pruning Dua Lapis**
+   - *Pruning Langsung*: cabang dipotong jika `current_distance ≥ best_distance`.
+   - *Pruning Lower Bound*: cabang dipotong jika `current_distance + estimasi_sisa ≥ best_distance`,
+     di mana estimasi sisa dihitung oleh `_lower_bound()` — mengambil edge terpendek dari
+     setiap node yang belum dikunjungi *menuju node lain yang juga belum dikunjungi atau
+     ke Hub*. Edge ke node yang sudah selesai dikunjungi sengaja diabaikan karena jalur
+     itu tidak mungkin lagi ditempuh — ini membuat estimasi lebih ketat dan pruning lebih
+     sering aktif dibanding pendekatan naif.
+
+2. **Greedy Warm-Start** — Sebelum DFS berjalan, `solve()` memanggil `GreedyRouteFinder`
+   terlebih dahulu untuk mendapatkan solusi awal yang langsung di-set sebagai `best_distance`.
+   Dengan begini, pruning sudah aktif sejak percabangan pertama, bukan menunggu DFS
+   menemukan solusi layak secara organik. Pendekatan ini juga menghindari duplikasi logika
+   "cari tetangga terdekat" di dua tempat berbeda.
+
+3. **Nearest-First Traversal + Precompute `_sorted_neighbors`** — Setiap node menelusuri
+   tetangganya dalam urutan jarak terdekat dahulu (bukan urutan index di JSON), sehingga
+   solusi mendekati optimal cenderung ditemukan lebih awal dan `best_distance` mengecil
+   lebih cepat. Urutan ini dihitung sekali saat `__init__` dan disimpan di
+   `_sorted_neighbors`, menghindari pengurutan ulang yang mahal di setiap pemanggilan rekursi.
+
+- **Kompleksitas Waktu: O(n!) Worst Case | jauh lebih cepat secara praktis**
+  Tanpa pruning, DFS menelusuri seluruh `n!` permutasi rute. Dengan dua lapis pruning +
+  warm-start, branching factor efektif mengecil drastis. Pada data nyata (12 node),
+  waktu eksekusi terukur sekitar **500–600 ms** — jauh di bawah worst case teoritis,
+  tapi tetap jauh lebih mahal dibanding Greedy yang hanya butuh hitungan puluhan mikrodetik.
+
 - **Kompleksitas Ruang: O(n²)**
-  Didominasi oleh matriks pre-komputasi `_sorted_neighbors` berukuran `n × (n-1)` untuk mengurutkan tetangga terdekat. Ini merupakan *trade-off* ruang (memori) demi menghindari *overhead* *sorting* iteratif di dalam rekursi (waktu). Stack rekursi itu sendiri hanya sedalam `O(n)`.
+  Didominasi oleh `_sorted_neighbors` (matriks `n × (n-1)`, dibuat sekali di `__init__`).
+  Struktur pendukung lain (`visited[]`, `current_path`, `best_path`, stack rekursi)
+  masing-masing O(n). Ini trade-off ruang yang disengaja: membayar O(n²) memori sekali
+  demi menghindari overhead sorting berulang selama rekursi berjalan.
+
+#### Catatan Penting: Jarak Optimal ≠ Bensin Optimal
+Karena `_dfs_pruning` mengoptimalkan **jarak (km)**, bukan **konsumsi bensin (liter)**,
+rute tependek yang ditemukan belum tentu paling hemat bahan bakar. Urutan kunjungan
+memengaruhi *kapan* beban berat dibawa — mengantar paket berat di awal rute (saat motor
+masih penuh dan boros) vs di akhir (saat motor sudah ringan dan irit) menghasilkan total
+bensin yang berbeda meski jarak tempuhnya sama. Bensin baru dihitung oleh `FuelCalculator`
+**setelah** rute eksak final didapat, bukan sebagai bagian dari fungsi pruning DFS itu
+sendiri.
 
 ---
 
